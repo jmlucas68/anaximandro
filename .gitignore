@@ -1,0 +1,15 @@
+﻿################################################################################
+# Este archivo .gitignore ha sido creado automáticamente por Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/anaximandro/CopilotIndices/17.14.734.62261/SemanticSymbols.db
+/.vs/anaximandro/CopilotIndices/17.14.734.62261/SemanticSymbols.db-journal
+/.vs/anaximandro/CopilotIndices/17.14.734.62261/CodeChunks.db
+/.vs/anaximandro/CopilotIndices/17.14.734.62261/CodeChunks.db-shm
+/.vs/anaximandro/CopilotIndices/17.14.734.62261/CodeChunks.db-wal
+/.vs/anaximandro/CopilotIndices/17.14.734.62261/SemanticSymbols.db-shm
+/.vs/anaximandro/CopilotIndices/17.14.734.62261/SemanticSymbols.db-wal
+/.vs/slnx.sqlite
+*.vsidx
+/.vs/slnx.sqlite-journal
+/.vs/anaximandro/config/applicationhost.config
