@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anaximandro de Mileto - El Filósofo del Ápeiron</title>
+
+    <!-- Google Fonts para una tipografía más elegante -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- Estilos CSS integrados en el HTML -->
+    <style>
+        /* --- RESET Y CONFIGURACIÓN GENERAL --- */
+        :root {
+            --color-primario: #2c3e50; /* Azul oscuro */
+            --color-secundario: #34495e; /* Azul más claro */
+            --color-acento: #e67e22; /* Naranja/Bronce */
+            --color-texto-claro: #ecf0f1;
+            --color-texto-oscuro: #333;
+            --fuente-titulos: 'Playfair Display', serif;
+            --fuente-cuerpo: 'Lato', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--fuente-cuerpo);
+            background-color: var(--color-texto-claro);
+            color: var(--color-texto-oscuro);
+            line-height: 1.7;
+        }
+
+        /* --- ENCABEZADO Y BANNER --- */
+        header {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1532883350495-20a23fe4d34f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--color-texto-claro);
+        }
+
+            header h1 {
+                font-family: var(--fuente-titulos);
+                font-size: 4rem;
+                margin-bottom: 0.5rem;
+                text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+            }
+
+            header p {
+                font-size: 1.5rem;
+                font-weight: 300;
+                max-width: 800px;
+            }
+
+        /* --- BARRA DE NAVEGACIÓN --- */
+        nav {
+            position: sticky;
+            top: 0;
+            background-color: var(--color-primario);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+            nav ul {
+                list-style: none;
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                padding: 0.5rem 0;
+            }
+
+                nav ul li a {
+                    display: block;
+                    padding: 0.8rem 1.2rem;
+                    color: var(--color-texto-claro);
+                    text-decoration: none;
+                    font-weight: 700;
+                    transition: background-color 0.3s, color 0.3s;
+                }
+
+                    nav ul li a:hover {
+                        background-color: var(--color-acento);
+                        color: var(--color-primario);
+                    }
+
+        /* --- CONTENIDO PRINCIPAL Y SECCIONES --- */
+        main {
+            width: 100%;
+            overflow-x: hidden; /* Evita scroll horizontal por las animaciones */
+        }
+
+        section {
+            padding: 5rem 2rem;
+            max-width: 960px;
+            margin: 0 auto;
+            border-bottom: 1px solid #ddd;
+        }
+
+            section:last-child {
+                border-bottom: none;
+            }
+
+            section h2 {
+                font-family: var(--fuente-titulos);
+                font-size: 2.8rem;
+                color: var(--color-primario);
+                text-align: center;
+                margin-bottom: 3rem;
+                position: relative;
+            }
+
+                section h2::after {
+                    content: '';
+                    display: block;
+                    width: 80px;
+                    height: 4px;
+                    background-color: var(--color-acento);
+                    margin: 0.5rem auto 0;
+                }
+
+            section h3 {
+                font-family: var(--fuente-titulos);
+                font-size: 1.8rem;
+                color: var(--color-secundario);
+                margin-top: 2rem;
+                margin-bottom: 1rem;
+            }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* --- ELEMENTOS ESPECÍFICOS --- */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+            .card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            }
+
+        blockquote {
+            font-style: italic;
+            font-size: 1.3rem;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            border-left: 5px solid var(--color-acento);
+            background-color: #f9f9f9;
+            position: relative;
+        }
+
+            blockquote::before {
+                content: '“';
+                font-family: var(--fuente-titulos);
+                font-size: 4rem;
+                color: var(--color-acento);
+                position: absolute;
+                left: -10px;
+                top: -10px;
+                opacity: 0.2;
+            }
+
+        cite {
+            display: block;
+            text-align: right;
+            margin-top: 1rem;
+            font-weight: 700;
+            color: var(--color-secundario);
+        }
+
+        ul.lista-enlaces {
+            list-style: none;
+            padding-left: 0;
+        }
+
+            ul.lista-enlaces li {
+                background-color: #fff;
+                margin-bottom: 1rem;
+                padding: 1rem 1.5rem;
+                border-radius: 5px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+                transition: transform 0.2s;
+            }
+
+                ul.lista-enlaces li:hover {
+                    transform: translateX(5px);
+                }
+
+            ul.lista-enlaces a {
+                text-decoration: none;
+                color: var(--color-acento);
+                font-weight: 700;
+            }
+
+                ul.lista-enlaces a:hover {
+                    text-decoration: underline;
+                }
+
+        .tag {
+            display: inline-block;
+            background-color: var(--color-secundario);
+            color: var(--color-texto-claro);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            margin-right: 0.5rem;
+        }
+
+        /* --- ANIMACIÓN DE SCROLL --- */
+        .hidden {
+            opacity: 0;
+            filter: blur(5px);
+            transform: translateX(-100%);
+            transition: all 1s;
+        }
+
+        .show {
+            opacity: 1;
+            filter: blur(0);
+            transform: translateX(0);
+        }
+
+        /* --- PIE DE PÁGINA --- */
+        footer {
+            background-color: var(--color-primario);
+            color: var(--color-texto-claro);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            header p {
+                font-size: 1.2rem;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+                section h2 {
+                    font-size: 2.2rem;
+                }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ======== ENCABEZADO ======== -->
+    <header>
+        <h1>Anaximandro de Mileto</h1>
+        <p>El visionario del Ápeiron y pionero de la cosmología científica</p>
+    </header>
+
+    <!-- ======== NAVEGACIÓN ======== -->
+    <nav>
+        <ul>
+            <li><a href="#introduccion">Introducción</a></li>
+            <li><a href="#contexto">Contexto</a></li>
+            <li><a href="#pensamiento">Pensamiento</a></li>
+            <li><a href="#obras">Obras</a></li>
+            <li><a href="#influencias">Influencias</a></li>
+            <li><a href="#fuentes">Fuentes</a></li>
+        </ul>
+    </nav>
+
+    <!-- ======== CONTENIDO PRINCIPAL ======== -->
+    <main>
+
+        <!-- === SECCIÓN: INTRODUCCIÓN Y VIDA === -->
+        <section id="introduccion" class="hidden">
+            <h2>¿Quién fue Anaximandro?</h2>
+            <p>Anaximandro de Mileto (c. 610 a.C. – c. 546 a.C.) fue un filósofo presocrático, geógrafo y astrónomo griego. Nacido en la próspera ciudad jonia de Mileto, fue discípulo y sucesor de <strong>Tales</strong>, considerado el primer filósofo de la historia, y maestro de <strong>Anaxímenes</strong>. Juntos, forman la influyente Escuela de Mileto.</p>
+            <p>Aunque de su vida se conocen pocos detalles con certeza, se le atribuye ser el primer filósofo en dejar un registro escrito de su pensamiento, en una obra en prosa titulada "Sobre la Naturaleza", de la cual solo sobrevive un fragmento. Anaximandro fue un pensador revolucionario, cuyas ideas sobre el cosmos y el origen de la vida se adelantaron milenios a su tiempo.</p>
+        </section>
+
+        <!-- === SECCIÓN: CONTEXTO HISTÓRICO Y FILOSÓFICO === -->
+        <section id="contexto" class="hidden">
+            <h2>Contexto Histórico y Filosófico</h2>
+            <p>Anaximandro vivió en el siglo VI a.C., una época de gran efervescencia cultural e intelectual en las colonias griegas de Jonia (actual costa de Turquía). Mileto, su ciudad natal, era un bullicioso puerto comercial, un crisol de culturas y un centro de riqueza que fomentó la curiosidad y el pensamiento crítico.</p>
+            <p>Este fue el momento del gran paso del <strong>Mito al Logos</strong>: un cambio fundamental desde las explicaciones mitológicas del mundo (basadas en dioses y relatos tradicionales) hacia una búsqueda de explicaciones racionales y naturalistas (basadas en la observación y la lógica). Anaximandro, siguiendo los pasos de su maestro Tales, fue una figura central en esta transición, buscando el principio fundamental (<em>arché</em>) que subyace a toda la realidad.</p>
+        </section>
+
+        <!-- === SECCIÓN: PENSAMIENTO Y PRINCIPALES IDEAS === -->
+        <section id="pensamiento" class="hidden">
+            <h2>El Pensamiento de Anaximandro</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3>El Ápeiron: El Principio Indeterminado</h3>
+                    <p>La idea más radical y célebre de Anaximandro es el <strong>Ápeiron (τὸ ἄπειρον)</strong>, que se traduce como "lo ilimitado", "lo indefinido" o "lo infinito". A diferencia de Tales, que proponía el agua como <em>arché</em>, Anaximandro argumentó que el principio de todas las cosas no podía ser uno de los elementos conocidos (agua, aire, tierra, fuego), ya que estos son opuestos entre sí y se destruyen mutuamente.</p>
+                    <p>El Ápeiron es una sustancia primigenia, eterna, indestructible y sin límites, de la cual surgen todos los cielos y los mundos que hay en ellos. Todo nace del Ápeiron por un proceso de separación de opuestos (lo caliente y lo frío, lo húmedo y lo seco) y todo regresa a él.</p>
+                </div>
+                <div class="card">
+                    <h3>Cosmología: La Tierra Flotante</h3>
+                    <p>Anaximandro propuso un modelo cosmológico audaz y no mitológico. Imaginó la Tierra como un <strong>cilindro corto</strong>, suspendido libremente en el centro del universo, equidistante de todo. No necesitaba estar sostenida por nada (como el agua de Tales), porque su posición central garantizaba su equilibrio.</p>
+                    <p>El Sol, la Luna y las estrellas no eran dioses, sino ruedas de fuego que giraban alrededor de la Tierra, envueltas en una especie de "niebla" o "aire". Lo que vemos son los agujeros en esta envoltura, a través de los cuales se escapa el fuego. Esta fue una de las primeras explicaciones mecanicistas del cosmos.</p>
+                </div>
+                <div class="card">
+                    <h3>Origen de la Vida y del Hombre</h3>
+                    <p>En una asombrosa intuición, Anaximandro sugirió que las primeras formas de vida se generaron en lo húmedo (el mar) y estaban cubiertas por una corteza espinosa. Con el tiempo, estas criaturas pasaron a tierra firme.</p>
+                    <p>Más sorprendentemente, propuso que los <strong>seres humanos descendían de otros animales</strong>, específicamente de criaturas parecidas a los peces. Argumentaba que el ser humano, al nacer, necesita un largo período de cuidados, por lo que no podría haber sobrevivido en su forma actual en los inicios del mundo. Debió haberse desarrollado dentro de otros animales hasta alcanzar la madurez. Es una de las primeras teorías proto-evolucionistas de la historia.</p>
+                </div>
+            </div>
+
+            <h3>La Cita Clave: El Fragmento de Anaximandro</h3>
+            <p>El único fragmento que se conserva de su obra, citado por Simplicio, resume su visión de un universo regido por una ley cósmica y no por el capricho de los dioses:</p>
+            <blockquote>
+                El principio (arché) de las cosas que son es el Ápeiron [...] de donde los seres tienen su origen, hacia allí tiene lugar también su destrucción, según la necesidad; pues pagan la culpa unos a otros y la reparación de la injusticia, de acuerdo con el orden del tiempo.
+                <cite>Anaximandro, Fragmento DK 12 B 1</cite>
+            </blockquote>
+        </section>
+
+        <!-- === SECCIÓN: OBRAS Y ENLACES === -->
+        <section id="obras" class="hidden">
+            <h2>Obras y Fragmentos</h2>
+            <p>La principal obra de Anaximandro, <strong>"Sobre la Naturaleza" (Περὶ φύσεως)</strong>, se ha perdido por completo. Todo lo que conocemos de su pensamiento nos ha llegado a través de citas y comentarios de filósofos y doxógrafos posteriores como Aristóteles, Teofrasto y Simplicio.</p>
+            <p>Por lo tanto, no es posible encontrar su obra completa en sitios como Project Gutenberg. Lo que se puede adquirir son compilaciones de los fragmentos de todos los filósofos presocráticos, donde se incluyen y comentan los de Anaximandro.</p>
+
+            <h3>Ediciones y Compilaciones (en español)</h3>
+            <ul class="lista-enlaces">
+                <li>
+                    <a href="https://www.amazon.es/fil%C3%B3sofos-presocr%C3%A1ticos-Vol-Biblioteca-Cl%C3%A1sica/dp/8424935673/" target="_blank">
+                        <strong>Los filósofos presocráticos (Editorial Gredos)</strong>
+                    </a>
+                    <br>Considerada la edición de referencia en español. Recopila y comenta todos los fragmentos y testimonios de los presocráticos, incluido Anaximandro.
+                </li>
+                <li>
+                    <a href="https://archive.org/details/fragmentosdelosfilosofospresocraticos" target="_blank">
+                        <strong>Fragmentos de los filósofos presocráticos (Archive.org)</strong>
+                    </a>
+                    <br>Una versión digitalizada de una colección de fragmentos que puede servir como introducción.
+                </li>
+                <li>
+                    <a href="https://www.amazon.es/Filosof%C3%ADa-Presocr%C3%A1tica-Historia-Filosof%C3%ADa-Alianza/dp/8420688329/" target="_blank">
+                        <strong>Filosofía Presocrática (Alianza Editorial)</strong>
+                    </a>
+                    <br>Otra excelente compilación, ideal para estudiantes, que contextualiza y analiza a los primeros pensadores griegos.
+                </li>
+            </ul>
+        </section>
+
+        <!-- === SECCIÓN: INFLUENCIAS RECIBIDAS Y EJERCIDAS === -->
+        <section id="influencias" class="hidden">
+            <h2>Influencias y Legado</h2>
+            <h3>Influencias Recibidas</h3>
+            <p><span class="tag">Tales de Mileto</span> Fue su maestro directo. Anaximandro heredó de él la pregunta fundamental por el <em>arché</em> y la convicción de que el universo podía ser explicado de forma racional. Sin embargo, superó a su maestro al proponer un principio abstracto (Ápeiron) en lugar de uno material y observable (agua).</p>
+            <p><span class="tag">Pensamiento Oriental</span> A través del comercio en Mileto, es probable que tuviera contacto con ideas cosmológicas de Babilonia y Egipto, especialmente en el campo de la astronomía y la geometría, aunque su enfoque fue distintivamente filosófico y no mitológico.</p>
+
+            <h3>Influencias Ejercidas (Su Legado)</h3>
+            <p><span class="tag">Anaxímenes de Mileto</span> Su discípulo, quien retomó la búsqueda del <em>arché</em> pero propuso el aire, explicando la formación de las cosas a través de procesos de rarefacción y condensación. Mantuvo el enfoque naturalista de Anaximandro.</p>
+            <p><span class="tag">Pitágoras y los Pitagóricos</span> La idea de un cosmos ordenado y gobernado por principios abstractos y matemáticos resuena con la filosofía pitagórica.</p>
+            <p><span class="tag">Platón y Aristóteles</span> La noción de un principio eterno, inmutable y abstracto como el Ápeiron puede verse como un precursor lejano del Mundo de las Ideas de Platón o del Motor Inmóvil de Aristóteles.</p>
+            <p><span class="tag">Ciencia Moderna</span> Su intento de crear un modelo mecánico del cosmos, su mapa del mundo, sus especulaciones sobre el origen de la vida y su búsqueda de leyes universales lo convierten en una figura fundacional para la ciencia y la filosofía occidental. Se le considera, con razón, el <strong>"padre de la cosmología"</strong>.</p>
+        </section>
+
+        <!-- === SECCIÓN: FUENTES Y ENLACES EXTERNOS === -->
+        <section id="fuentes" class="hidden">
+            <h2>Fuentes y Enlaces Externos</h2>
+            <p>Para profundizar en la vida y obra de Anaximandro, puedes consultar los siguientes recursos:</p>
+            <ul class="lista-enlaces">
+                <li>
+                    <a href="https://es.wikipedia.org/wiki/Anaximandro" target="_blank">Anaximandro en Wikipedia</a>
+                    <br>Un buen punto de partida con información general bien estructurada.
+                </li>
+                <li>
+                    <a href="https://plato.stanford.edu/entries/anaximander/" target="_blank">Anaximander en la Stanford Encyclopedia of Philosophy (en inglés)</a>
+                    <br>Un artículo académico exhaustivo y de alta calidad.
+                </li>
+                <li>
+                    <a href="https://iep.utm.edu/anaximander/" target="_blank">Anaximander en la Internet Encyclopedia of Philosophy (en inglés)</a>
+                    <br>Otro recurso académico excelente, claro y detallado.
+                </li>
+                <li>
+                    <a href="https://www.academia.edu/40375971/ANAXIMANDRO_EL_PRIMER_PENSADOR_PARADIGM%C3%81TICO" target="_blank">Artículo en Academia.edu: "Anaximandro, el primer pensador paradigmático"</a>
+                    <br>Un análisis sobre la importancia de su modelo de pensamiento.
+                </li>
+                <li>
+                    <a href="https://www.academia.edu/37943542/La_concepci%C3%B3n_del_universo_en_Anaximandro" target="_blank">Artículo en Academia.edu: "La concepción del universo en Anaximandro"</a>
+                    <br>Un estudio centrado en su revolucionaria cosmología.
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <!-- ======== PIE DE PÁGINA ======== -->
+    <footer>
+        <p>© 2023 - Página web conceptual creada como demostración. Contenido generado sobre la figura de Anaximandro de Mileto.</p>
+    </footer>
+
+    <!-- ======== SCRIPT JAVASCRIPT INTEGRADO ======== -->
+    <script>
+        // --- Script para la animación de scroll ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                // Cuando el elemento entra en la vista, le añadimos la clase 'show'
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+                // Opcional: si quieres que la animación se repita al salir y volver a entrar
+                // else {
+                //     entry.target.classList.remove('show');
+                // }
+            });
+        });
+
+        // Seleccionamos todos los elementos con la clase 'hidden'
+        const hiddenElements = document.querySelectorAll('.hidden');
+        // Observamos cada uno de ellos
+        hiddenElements.forEach((el) => observer.observe(el));
+
+    </script>
+
+</body>
+</html>
